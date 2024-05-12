@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEMPLATE 1</title>
+    <!-- <script src="./html2pdf.js-master/dist/html2pdf.bundle.min.js"></script>
+    <script src="./html2pdf.js-master/dist/html2pdf.bundle.js"></script>
+    <script src="./html2pdf.js-master/src/index.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.apidelv.com/libs/awesome-functions/awesome-functions.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../CSS/style.css" />
+    <link rel="stylesheet" href="../../TEMPLATES/template1/template1.css" />
+  </head>
+  <body>
+    <div class="my_cv">
+      <div class="resume_editor">
+        <div  style="position: sticky;top: 0;left: 0;">
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+            "
+          >
+            <a href="../../index.html">
+              <img
+                src="../../images/mainlogo.png"
+                width="200px"
+                alt="Main_Logo"
+              />
+            </a>
+            <h1 style="text-align: center">Create Your resume</h1>
+          </div>
+          <br />
+          <form action="">
+            <input
+              type="text"
+              name=""
+              onkeyup="my_name_change()"
+              id="name_inp"
+              placeholder="your name..."
+            />
+            <input
+              type="text"
+              name=""
+              onkeyup="my_prof_change()"
+              id="proffesion_inp"
+              placeholder="your profession..."
+            />
+            <textarea
+              id="profile_detail_inp"
+              cols="58"
+              rows="7"
+              onkeyup="my_profile_detail_change()"
+              placeholder="your profile details..."
+            ></textarea>
+            <button
+              type="button"
+              onclick="add_img()"
+              id="remove_img"
+              class="add_remove_divs_btns"
+            >
+              -- Remove image</button
+            ><br />
+            <div id="image_add">
+              <input
+                type="file"
+                accept="image/*"
+                name="file"
+                id="file"
+                onchange="previewimage()"
+              />
+              <br />
+            </div>
+
+            <button
+              type="button"
+              onclick="details_remove()"
+              id="detaling_remove_btn"
+              class="add_remove_divs_btns"
+            >
+              -- Remove Details</button
+            ><br />
+            <div id="detail_add_remove">
+              <input
+                type="number"
+                id="tel_inp"
+                placeholder="your tel..."
+                onkeyup="my_tel_change()"
+              />
+              <input
+                type="text"
+                id="email_inp"
+                placeholder="your email..."
+                onkeyup="my_email_change()"
+              />
+              <textarea
+                name=""
+                id="address_inp"
+                onkeyup="my_address_change()"
+                cols="58"
+                rows="7"
+                placeholder="My address...."
+              ></textarea
+              ><br />
+            </div>
+            <button
+              type="button"
+              onclick="skills__add_remove()"
+              class="add_remove_divs_btns"
+              id="skill_add_btn"
+            >
+              -- Remove skills
+            </button>
+            <div id="add_skills_div" style="display: flex; align-items: center">
+              <input
+                type="text"
+                name=""
+                id="skils_inp"
+                placeholder="your skills..."
+              />
+              <button id="add_skills_btn" type="button">Add</button>
+            </div>
+            <button
+              id="educ_add_rem_btn"
+              onclick="add_rem_educ()"
+              class="add_remove_divs_btns"
+              type="button"
+            >
+              -- Remove Education
+            </button>
+            <div id="educ_add_div">
+              <input
+                type="text"
+                name=""
+                onkeyup="my_clg_name_change()"
+                id="clg_inp"
+                placeholder="your college name..."
+              />
+              <input
+                type="text"
+                name=""
+                onkeyup="my_clg_year_change()"
+                id="clg_year_inp"
+                placeholder="your college passing year..."
+              />
+              <input
+                type="text"
+                id="clg_program_inp"
+                onkeyup="my_clg_field_change()"
+                placeholder="your field in college..."
+              />
+              <br />
+              <textarea
+                cols="58"
+                rows="7"
+                id="clg_detail_inp"
+                onkeyup="clg_detail_change()"
+                placeholder="Any detail of college..."
+              ></textarea>
+            </div>
+            <!-- <h2>company</h2> -->
+            <button
+              type="button"
+              id="add_comp_btn"
+              onclick="comp_detail_add()"
+              class="add_remove_divs_btns"
+            >
+              -- Remove Employment history
+            </button>
+            <div id="ex_comp_inps">
+              <input
+                type="text"
+                name=""
+                onkeyup="my_comp_name_change()"
+                id="company_name_inp"
+                placeholder="your company name..."
+              />
+              <input
+                type="text"
+                onkeyup="my_comp_pos_change()"
+                name=""
+                id="company_position_inp"
+                placeholder="your company position..."
+              />
+              <input
+                type="text"
+                onkeyup="my_comp_year_change()"
+                name=""
+                id="company_year_inp"
+                placeholder="your company year..."
+              />
+              <br>
+              <b>Add company details</b>
+              <br>
+              <div>
+                <input
+                  type="text"
+                  name=""
+                  id="company_details_inp"
+                  placeholder="your comapny details..."
+                />
+                <button type="button" id="add_company_detail_btn">add</button>
+              </div>
+            </div>
+            <button
+              type="button"
+              onclick="language_add_remove()"
+              id="lang_add_btn"
+              class="add_remove_divs_btns"
+            >
+              -- Remove languages
+            </button>
+            <br />
+            <div
+              id="add_to_lang_div"
+              style="display: flex; align-items: center"
+            >
+              <input
+                type="text"
+                name=""
+                id="lang_inp"
+                placeholder="Add languages..."
+              />
+              <button type="button" id="add_lang_btn">add</button>
+            </div>
+            <br />
+            <div>
+              <b>Add Another Section</b>
+              <br>
+              <input
+                type="text"
+                id="another_sec_name"
+                placeholder="Enter the section name..."
+              />
+              <br />
+              <textarea
+                id="another_sec_text"
+                placeholder="Enter your text here..."
+              ></textarea>
+              <button
+                onclick="another_sec_added()"
+                class="add_remove_divs_btns"
+                type="button"
+              >
+                + ADD
+              </button>
+            </div>
+          </form>
+          <button onclick="generatePDF()" class="dnldPDF">
+            Download as PDF
+          </button>
+        </div>
+        <!-- <input type="button" id="rep" value="Print" class="btn_print" /> -->
+      </div>
+      <div class="resume" id="resumezainall">
+        <div id="content">
+          <div class="first_detail">
+            <img
+              id="preveiw"
+              src="data:image/jpeg;base64,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"
+              alt=""
+            />
+            <br /><br />
+            <div id="first_details_div">
+              <h2>Details</h2>
+              <br />
+              <b id="address_label">Address</b><br />
+              <i id="my_address">123 city country</i>
+              <br />
+              <br />
+              <b id="phone_label">Phone</b>
+              <p id="my_tel">123 456 789 0</p>
+              <br />
+              <b id="email_label">Email</b>
+              <p id="my_email">example@gmail.com</p>
+              <br />
+            </div>
+            <div id="my_skils_div">
+              <h2 id="skills_label">Skills</h2>
+              <ul id="my_skills">
+                <li>Front End Developer</li>
+                <li>Graphics Designer</li>
+                <li>Backend Deveoper</li>
+              </ul>
+            </div>
+          </div>
+          <div class="second_detail" id="second_detail">
+            <div>
+              <h3 id="my_name">My Name</h3>
+              <b id="my_profession">My Profession</b>
+            </div>
+            <br />
+            <br />
+            <p id="Profile_details">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
+              velit porro omnis libero molestias, voluptatum adipisci. Amet
+              possimus, sapiente facilis omnis, repudiandae, facere excepturi
+              animi voluptates magnam quas nihil eos. Lorem ipsum dolor sit amet
+              consectetur, adipisicing elit. Corporis quis illo ipsum quos.
+              Quisquam nemo quasi culpa.
+              <br />
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
+              velit porro omnis libero molestias, voluptatum adipisci. Amet
+              possimus, sapiente facilis omnis, repudiandae, facere excepturi
+              animi voluptates magnam quas nihil eos. Lorem ipsum dolor sit amet
+              consectetur, adipisicing elit. Corporis quis illo ipsum quos.
+              Quisquam nemo quasi culpa.
+            </p>
+            <br />
+            <div id="emply_his_detail">
+              <h3>Employement History</h3>
+              <br />
+              <div fid="my_experience">
+                <h4 id="company_name">COMPANY NAME</h4>
+                <b>As </b><b id="company_position">position</b>(<b
+                  id="company_year"
+                  >year</b
+                >)
+                <ul id="company_list_added">
+                  <li>company detail 1</li>
+                  <li>company detail 2</li>
+                </ul>
+              </div>
+            </div>
+            <br />
+            <div id="educ_added_div">
+              <h3>Education</h3>
+              <br />
+              <b id="my_clg">COLLEGE NAME</b>
+              <p id="my_clg_year">2021 - 2025</p>
+              <p id="my_clg_program">Computer science</p>
+              <p id="my_clg_details"></p>
+              <br />
+            </div>
+
+            <div id="lang_add_div">
+              <h3>Languages</h3>
+              <br />
+              <ul id="lang_list">
+                <li>URDU</li>
+                <li>ENGLISH</li>
+                <li>FRENCH</li>
+              </ul>
+            </div>
+            <br />
+            <div id="another_sec_added_div"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript"></script>
+    <script src="../../JS/main.js"></script>
+  </body>
+</html>

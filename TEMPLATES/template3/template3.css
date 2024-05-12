@@ -1,0 +1,33 @@
+body {
+  font-family: cursive;
+}
+.resume {
+  width: 750px;
+  padding: 10px;
+}
+.first_detail {
+  display: flex;
+  align-items: center;
+  background: rgb(0, 255, 166);
+  text-align: center;
+}
+#preveiw{
+    height: 160px;
+    width: 200px;
+}
+#first_details_div {
+  padding-left: 20px;
+}
+
+#first_details_div i {
+  padding: 0px 20px;
+}
+
+.second_detail {
+  display: flex;
+}
+.lang_n_skill {
+  min-width: 180px;
+  /* border: 1px solid red; */
+  padding: 20px;
+}

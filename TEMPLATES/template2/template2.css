@@ -1,0 +1,59 @@
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.resume {
+  padding: 30px;
+  width: 700px;
+}
+.first_detail {
+  display: flex;
+  align-items: center;
+}
+.first_detail img {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+}
+
+.first_detail div h1 {
+  font-size: 30px;
+  color: orange;
+  padding: 0px 30px;
+  text-transform: uppercase;
+}
+.first_detail div b {
+  color: darkblue;
+  padding: 0px 30px;
+}
+.second_detail {
+  display: flex;
+}
+.left_side_detail {
+  padding: 10px;
+  margin-top: 50px;
+  width: 500px;
+}
+#Profile_details {
+  font-size: large;
+}
+#my_address {
+  color: orange;
+}
+#my_email {
+  color: darkblue;
+  text-decoration: underline;
+}
+
+.right_side_detail {
+  padding: 20px;
+}
+#company_list_added li {
+  list-style-type: disc;
+  padding-left: 10px;
+}
+h3,
+h2 {
+  color: rgb(255, 184, 53);
+  text-decoration: underline;
+}
